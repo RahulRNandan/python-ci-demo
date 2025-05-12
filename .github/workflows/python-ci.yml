@@ -1,22 +1,22 @@
 name: Python CI
 
-on: [push]
+on: [push]   # Triggers the workflow on every push to the repository
 
 jobs:
   build: 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest   # The job runs on the latest Ubuntu runner provided by GitHub
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3   # Checks out your repository code so the runner can access it
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
-      
+          python-version: '3.10'    # Sets up Python 3.10 on the runner
+
       - name: Install Dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt   # Installs your Python dependencies
 
       - name: Run Tests
-        run: pytest
+        run: pytest   # Runs your tests using pytest
